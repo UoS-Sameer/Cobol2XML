@@ -64,6 +64,7 @@ public class Cobol2XML {
     	
     	System.out.println("arg[0]" + args[0]); 
     	System.out.println("arg[1]" + args[1]);  /* comment*/
+    	// random comment
 
         try {
             MyLogger.setup();
