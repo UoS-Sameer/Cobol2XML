@@ -16,6 +16,7 @@ class MyFormatter extends Formatter {
 
         // colorize any levels >= WARNING in red
         if (rec.getLevel().intValue() >= Level.WARNING.intValue()) {
+        	// \t is tab for indentation, \ is an escape character for "
             buf.append("\t<td style=\"color:red\">");
             buf.append("<b>");
             buf.append(rec.getLevel());
