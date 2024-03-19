@@ -31,6 +31,11 @@ public class Cobol implements PubliclyCloneable {
 	protected int dayDateWritten = 0;
 	protected String monthDateWritten;
 	protected int yearDateWritten = 0;
+	
+	//ADDED BY GROUP 6, Constant Value
+	protected String constantName;
+	protected double constantValue;
+	protected int lineNumber = 0;
 
 	
 	/**
@@ -167,6 +172,33 @@ public class Cobol implements PubliclyCloneable {
 	}
 	
 	/**
+	 * Return the constantName of this COBOL program.
+	 *
+	 * @return the constantName of this COBOL program
+	 */
+	public String getConstantName() {
+		return constantName;
+	}
+	
+	/**
+	 * Return the constantValue of this COBOL program.
+	 *
+	 * @return the constantValue of this COBOL program
+	 */
+	public double getConstantValue() {
+		return constantValue;
+	}
+	
+	/**
+	 * Return the lineNumber of this COBOL program.
+	 *
+	 * @return the lineNumber of this COBOL program
+	 */
+	public int getLineNumber() {
+		return lineNumber;
+	}
+	
+	/**
 	 * Set a line of commented text from the COBOL program.
 	 *
 	 * @return line of commented text from the COBOL program
@@ -230,6 +262,33 @@ public class Cobol implements PubliclyCloneable {
 	 */
 	public void setDivisionName(String divisionName) {
 		this.divisionName = divisionName;
+	}
+	
+	/**
+	 * Set the constant name 
+	 *
+	 * @param  String constantName
+	 */
+	public void setConstantName(String constantName) {
+		this.constantName = constantName;
+	}
+	
+	/**
+	 * Set the constant value 
+	 *
+	 * @param  double constantValue
+	 */
+	public void setConstantValue(double constantValue) {
+		this.constantValue = constantValue;
+	}
+	
+	/**
+	 * Set the line number
+	 *
+	 * @param  integer lineNumber
+	 */
+	public void setLineNumber(int lineNumber) {
+		this.lineNumber = lineNumber;
 	}
 
 	/**

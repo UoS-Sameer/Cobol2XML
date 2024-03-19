@@ -10,3 +10,4 @@ working-storage section.
 
 procedure division.
 
+88 base_2 value 2.

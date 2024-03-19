@@ -21,6 +21,7 @@
 package xmlwriter;
 
 import cobol.*;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.StringWriter;
@@ -35,6 +36,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Attr;
 
 import java.util.logging.Logger;
 
@@ -68,6 +70,23 @@ public class XMLPayload {
 	
 	
 	public void addElements(Cobol c) {
+		
+		/*
+		 * ADDED BY GROUP 6
+		 * add constateName element
+		 * */
+		String constantName = c.getConstantName();
+		if(constantName != null) {
+			this.addConstantValueElement( constantName, c.getConstantValue(), c.getLineNumber() );
+			//System.out.println("Got Section");
+			
+			//Add contents of procedure division
+		} else {
+			//System.out.println("Comment Line null");
+		}
+		
+		
+		
 		/*
 		 *  add sectionName element
 		 */		
@@ -201,6 +220,40 @@ public class XMLPayload {
 			Element cobolname = doc.createElement("year-date-written");
 			String s = "" + intElement;
 			cobolname.appendChild(doc.createTextNode(s));
+			rootElement.appendChild(cobolname);
+		}
+	}
+	
+	/*
+	 * ADDED BY GROUP 6
+	 * */
+	void addConstantValueElement(String constantName, double constantValue, int lineNumber) {
+		//Program ID element
+		
+		if(constantName != null) {
+			Element cobolname = doc.createElement("Constant");
+			
+			//insert name of constant into XML file
+			Element constID = doc.createElement("Constant");
+			Attr attrType2 = doc.createAttribute("Name");
+			attrType2.setValue( constantName );
+			constID.setAttributeNode(attrType2);
+			cobolname.appendChild(constID);
+			
+			// insert line number of constant into XML file
+			Element lineID = doc.createElement(constantName);
+			Attr attrType = doc.createAttribute("Line_Number");
+			attrType.setValue( Integer.toString(lineNumber) );
+			lineID.setAttributeNode(attrType);
+			cobolname.appendChild(lineID);
+			
+			//insert value of constant into XML file
+			Element constantID = doc.createElement(constantName);
+			Attr attrType1 = doc.createAttribute("Value");
+			attrType1.setValue( Double.toString(constantValue) );
+			constantID.setAttributeNode(attrType1);
+			cobolname.appendChild(constantID);
+			
 			rootElement.appendChild(cobolname);
 		}
 	}
