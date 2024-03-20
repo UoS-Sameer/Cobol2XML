@@ -44,6 +44,13 @@ public class Cobol implements PubliclyCloneable {
 	protected String computeEqual;
 	protected String computeSum;
 
+	//Display
+	protected String display1;
+	protected String display2;
+	protected int displayNumber = 0;
+	protected String displayString1;
+	protected String displayString2;
+	protected String displayString3;
 	
 	
 	/**
@@ -337,6 +344,54 @@ public class Cobol implements PubliclyCloneable {
 	
 	public void setComputeSum(String computeSum) {
 		this.computeSum = computeSum;
+	}
+	
+	public String getDisplay1() {
+		return display1;
+	}
+	
+	public void setDisplay1(String display1) {
+		this.display1 = display1;
+	}
+	
+	public String getDisplay2() {
+		return display2;
+	}
+	
+	public void setDisplay2(String display2) {
+		this.display2 = display2;
+	}
+	
+	public int getDisplayNumber() {
+		return displayNumber;
+	}
+	
+	public void setDisplayNumber(int displayNumber) {
+		this.displayNumber = displayNumber;
+	}
+	
+	public String getDisplayString1() {
+		return displayString1;
+	}
+	
+	public void setDisplayString1(String displayString1) {
+		this.displayString1 = displayString1;
+	}
+	
+	public String getDisplayString2() {
+		return displayString2;
+	}
+	
+	public void setDisplayString2(String displayString2) {
+		this.displayString2 = displayString2;
+	}
+	
+	public String getDisplayString3() {
+		return displayString3;
+	}
+	
+	public void setDisplayString3(String displayString3) {
+		this.displayString3 = displayString3;
 	}
 	
 	

@@ -23,9 +23,11 @@ package cobol;
 import parse.Alternation;
 import parse.Empty;
 import parse.Parser;
+import parse.Repetition;
 import parse.Sequence;
 import parse.tokens.CaselessLiteral;
 import parse.tokens.Num;
+import parse.tokens.QuotedString;
 import parse.tokens.Symbol;
 import parse.tokens.Tokenizer;
 import parse.tokens.Word;
@@ -47,8 +49,10 @@ public class CobolParser {
 		Symbol fullstop = new Symbol('.');
 		fullstop.discard();
 		
+		a.add( display() );
 		a.add( computeLine() );	
-		a.add( constantValue() );	
+		a.add( constantValue() );
+		
 		a.add( ProgramID() );
 		
 		a.add( DivisionName() );
@@ -152,7 +156,7 @@ public class CobolParser {
 	 * 
 	 * Returns a parser that will recognise the grammar:
 	 * 
-	 * 			compute <variable> = <variable> + <variable>
+	 * 			compute <variable> = <variable> <operator> <variable>
 	 * */
 	protected Parser computeLine() {
 		//System.out.println("computeLine()");
@@ -173,6 +177,71 @@ public class CobolParser {
 		s.add(a);
 		s.add(new Word()); //num_2
 		s.setAssembler(new ComputeLineAssembler());
+		
+		return s;
+		
+	}
+	
+	/*
+	 * ADDED BY GROUP 6
+	 * 
+	 * Returns a parser that will recognise the grammar:
+	 * 
+	 * 			display quotedString word/number quotedString word/number quotedString word/number
+	 * */
+	protected Parser display() {
+		//System.out.println("display()");
+		Sequence s = new Sequence();
+		
+		s.add(new CaselessLiteral("display"));
+		
+		
+		Alternation a = new Alternation();
+		a.add( new QuotedString() );
+		a.add( new Word() );
+		a.add( new Num() );
+
+		
+//		Alternation a1 = new Alternation();
+//		a1.add( new QuotedString() );
+//		a1.add( new Word() );
+//		a1.add( new Num() );
+//
+//		
+//		Alternation a2 = new Alternation();
+//		a2.add( new QuotedString() );
+//		a2.add( new Word() );
+//		a2.add( new Num() );
+//
+//		
+//		Alternation a3 = new Alternation();
+//		a3.add( new QuotedString() );
+//		a3.add( new Word() );
+//		a3.add( new Num() );
+//
+//		
+//		Alternation a4 = new Alternation();
+//		a4.add( new QuotedString() );
+//		a4.add( new Word() );
+//		a4.add( new Num() );
+//
+//		
+//		Alternation a5 = new Alternation();
+//		a5.add( new QuotedString() );
+//		a5.add( new Word() );
+//		a5.add( new Num() );
+		
+		Repetition r = new Repetition(a);
+		s.add(r);
+		s.add(new Num());
+		
+//		s.add(a1);
+//		s.add(a2);
+//		s.add(a3);
+//		s.add(a4);
+//		s.add(a5);
+		
+		s.setAssembler(new DisplayAssembler());
 		
 		return s;
 		

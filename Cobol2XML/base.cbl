@@ -2,12 +2,11 @@ identification division.
 
 program-id.  base_jb.
 
-
 date-written.  7-jul-1995 - mb.
 
 data division.
-working-storage section.
 
+working-storage section.
 
 procedure division.
 
@@ -17,3 +16,5 @@ compute sum = num_1 + num_2.
 compute sum = num_1 - num_2.
 compute sum = num_1 * num_2.
 compute sum = num_1 / num_2.
+
+display "The sum of " num_1 " and " num_2 " is " 10.

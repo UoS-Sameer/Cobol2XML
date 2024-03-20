@@ -74,6 +74,21 @@ public class XMLPayload {
 		
 		/*
 		 * ADDED BY GROUP 6
+		 * add display element
+		 * */
+		String display1 = c.getDisplay1();
+		if(display1 != null) {
+			this.addDisplay( display1 , c.getDisplay2(), c.getDisplayNumber() ,c.getDisplayString1(),c.getDisplayString2(),c.getDisplayString3() );
+			//System.out.println("Got Section");
+			
+			//Add contents of computeLine
+		} else {
+			//System.out.println("Comment Line null");
+		}
+		
+		
+		/*
+		 * ADDED BY GROUP 6
 		 * add computeLine element
 		 * */
 		String computeVar_1 = c.getComputeVar_1();
@@ -248,7 +263,16 @@ public class XMLPayload {
 			rootElement.appendChild(computeLine);
 		}
 		
+	}
+	
+	void addDisplay( String display1, String display2, int displayNumber, String displayString1, String displayString2, String displayString3 ){
 		
+		if(display1 != null) {
+			Element display = doc.createElement("Display");
+			display.appendChild(doc.createTextNode(displayString1 + display1 + displayString2 + display2 + displayString3 + displayNumber));
+			rootElement.appendChild(display);
+			
+		}
 	}
 	
 	/*

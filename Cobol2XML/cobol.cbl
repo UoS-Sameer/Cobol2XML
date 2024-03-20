@@ -17,4 +17,5 @@
     <Compute>sum = num_1 - num_2</Compute>
     <Compute>sum = num_1 * num_2</Compute>
     <Compute>sum = num_1 / num_2</Compute>
+    <Display>"The sum of "num_1" and "num_2" is "10</Display>
 </cobol>
