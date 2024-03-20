@@ -71,6 +71,22 @@ public class XMLPayload {
 	
 	public void addElements(Cobol c) {
 		
+		
+		/*
+		 * ADDED BY GROUP 6
+		 * add computeLine element
+		 * */
+		String computeVar_1 = c.getComputeVar_1();
+		if(computeVar_1 != null) {
+			this.addComputeLineElement( computeVar_1 , c.getComputeVar_2(), c.getComputeSum() ,c.getComputeOperator(),c.getComputeEqual() );
+			//System.out.println("Got Section");
+			
+			//Add contents of computeLine
+		} else {
+			//System.out.println("Comment Line null");
+		}
+		
+		
 		/*
 		 * ADDED BY GROUP 6
 		 * add constateName element
@@ -80,7 +96,7 @@ public class XMLPayload {
 			this.addConstantValueElement( constantName, c.getConstantValue(), c.getLineNumber() );
 			//System.out.println("Got Section");
 			
-			//Add contents of procedure division
+			//Add contents of constant name
 		} else {
 			//System.out.println("Comment Line null");
 		}
@@ -222,6 +238,17 @@ public class XMLPayload {
 			cobolname.appendChild(doc.createTextNode(s));
 			rootElement.appendChild(cobolname);
 		}
+	}
+	
+	void addComputeLineElement(String computeVar_1, String computeVar_2, String computeSum, String computePlus,String computeEqual) {
+		
+		if(computeVar_1 != null) {
+			Element computeLine = doc.createElement("Compute");
+			computeLine.appendChild(doc.createTextNode(computeSum + " " + computeEqual + " " + computeVar_1 + " " + computePlus + " " + computeVar_2 ));
+			rootElement.appendChild(computeLine);
+		}
+		
+		
 	}
 	
 	/*

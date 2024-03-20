@@ -36,7 +36,15 @@ public class Cobol implements PubliclyCloneable {
 	protected String constantName;
 	protected double constantValue;
 	protected int lineNumber = 0;
+	
+	//Computing Line
+	protected String computeVar_1;
+	protected String computeVar_2;
+	protected String computeOperator;
+	protected String computeEqual;
+	protected String computeSum;
 
+	
 	
 	/**
 	 * Return a copy of this object.
@@ -208,7 +216,6 @@ public class Cobol implements PubliclyCloneable {
 	}
 
 
-
 	/**
 	 * Set the name of this cobol file.
 	 *
@@ -290,6 +297,49 @@ public class Cobol implements PubliclyCloneable {
 	public void setLineNumber(int lineNumber) {
 		this.lineNumber = lineNumber;
 	}
+	
+	
+	public String getComputeVar_1() {
+		return computeVar_1;
+	}
+	
+	public void setComputeVar_1(String computeVar_1) {
+		this.computeVar_1 = computeVar_1;
+	}
+	
+	public String getComputeVar_2() {
+		return computeVar_2;
+	}
+	
+	public void setComputeVar_2(String computeVar_2) {
+		this.computeVar_2 = computeVar_2;
+	}
+	
+	public String getComputeOperator() {
+		return computeOperator;
+	}
+	
+	public void setComputeOperator(String computeOperator) {
+		this.computeOperator = computeOperator;
+	}
+	
+	public String getComputeEqual() {
+		return computeEqual;
+	}
+	
+	public void setComputeEqual(String computeEqual) {
+		this.computeEqual = computeEqual;
+	}
+	
+	public String getComputeSum() {
+		return computeSum;
+	}
+	
+	public void setComputeSum(String computeSum) {
+		this.computeSum = computeSum;
+	}
+	
+	
 
 	/**
 	 * Return a textual description of this cobol type.

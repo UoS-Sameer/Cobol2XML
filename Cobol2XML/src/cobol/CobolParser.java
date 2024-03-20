@@ -47,6 +47,7 @@ public class CobolParser {
 		Symbol fullstop = new Symbol('.');
 		fullstop.discard();
 		
+		a.add( computeLine() );	
 		a.add( constantValue() );	
 		a.add( ProgramID() );
 		
@@ -142,6 +143,37 @@ public class CobolParser {
 		s.add( new CaselessLiteral("value") );
 		s.add( new Num() );
 		s.setAssembler(new ConstantValueAssembler());
+		return s;
+		
+	}
+	
+	/*
+	 * ADDED BY GROUP 6
+	 * 
+	 * Returns a parser that will recognise the grammar:
+	 * 
+	 * 			compute <variable> = <variable> + <variable>
+	 * */
+	protected Parser computeLine() {
+		//System.out.println("computeLine()");
+		Sequence s = new Sequence();
+		
+		s.add(new CaselessLiteral("compute"));
+		s.add(new Word()); //sum
+		s.add(new Symbol('='));
+		s.add(new Word()); //num_1
+		
+		//Adding possible operators
+		Alternation a = new Alternation();
+		a.add(new Symbol('+'));
+		a.add(new Symbol('-'));
+		a.add(new Symbol('/'));
+		a.add(new Symbol('*'));
+		
+		s.add(a);
+		s.add(new Word()); //num_2
+		s.setAssembler(new ComputeLineAssembler());
+		
 		return s;
 		
 	}

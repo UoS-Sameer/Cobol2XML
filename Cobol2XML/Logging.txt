@@ -1,6 +1,6 @@
-Mar 19, 2024 3:20:21 PM cobol.Cobol2XML main
+Mar 20, 2024 3:24:27 PM cobol.Cobol2XML main
 INFO: Cobol2XML V0.1.0
-Mar 19, 2024 3:20:21 PM xmlwriter.XMLPayload writeFile
+Mar 20, 2024 3:24:27 PM xmlwriter.XMLPayload writeFile
 INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cobol>
     <division>identification</division>
@@ -16,5 +16,9 @@ INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <base_2 Line_Number="88"/>
         <base_2 Value="2.0"/>
     </Constant>
+    <Compute>sum = num_1 + num_2</Compute>
+    <Compute>sum = num_1 - num_2</Compute>
+    <Compute>sum = num_1 * num_2</Compute>
+    <Compute>sum = num_1 / num_2</Compute>
 </cobol>
 

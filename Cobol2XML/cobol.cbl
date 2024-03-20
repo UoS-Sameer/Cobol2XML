@@ -13,4 +13,8 @@
         <base_2 Line_Number="88"/>
         <base_2 Value="2.0"/>
     </Constant>
+    <Compute>sum = num_1 + num_2</Compute>
+    <Compute>sum = num_1 - num_2</Compute>
+    <Compute>sum = num_1 * num_2</Compute>
+    <Compute>sum = num_1 / num_2</Compute>
 </cobol>
