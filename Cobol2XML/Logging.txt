@@ -1,6 +1,6 @@
-Mar 20, 2024 5:53:28 PM cobol.Cobol2XML main
+Mar 21, 2024 12:25:55 PM cobol.Cobol2XML main
 INFO: Cobol2XML V0.1.0
-Mar 20, 2024 5:53:28 PM xmlwriter.XMLPayload writeFile
+Mar 21, 2024 12:25:56 PM xmlwriter.XMLPayload writeFile
 INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cobol>
     <division>identification</division>
@@ -17,9 +17,10 @@ INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <base_2 Value="2.0"/>
     </Constant>
     <Compute>sum = num_1 + num_2</Compute>
-    <Compute>sum = num_1 - num_2</Compute>
-    <Compute>sum = num_1 * num_2</Compute>
-    <Compute>sum = num_1 / num_2</Compute>
+    <Compute>difference = num_1 - num_2</Compute>
+    <Compute>product = 13 * num_2</Compute>
+    <Compute>quotient = num_1 / 2</Compute>
     <Display>"The sum of "num_1" and "num_2" is "10</Display>
+    <Stop>run</Stop>
 </cobol>
 

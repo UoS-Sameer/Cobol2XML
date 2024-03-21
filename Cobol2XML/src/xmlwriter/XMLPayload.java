@@ -71,6 +71,20 @@ public class XMLPayload {
 	
 	public void addElements(Cobol c) {
 		
+		/*
+		 * ADDED BY GROUP 6
+		 * add display element
+		 * */
+		String stopRun = c.getStopRun();
+		if(stopRun != null) {
+			this.addStopRun( stopRun );
+			//System.out.println("Got Section");
+			
+			//Add contents of stopRun
+		} else {
+			//System.out.println("Comment Line null");
+		}
+		
 		
 		/*
 		 * ADDED BY GROUP 6
@@ -274,6 +288,17 @@ public class XMLPayload {
 			
 		}
 	}
+	
+void addStopRun( String stopRun ){
+		
+		if(stopRun != null) {
+			Element stop = doc.createElement("Stop");
+			stop.appendChild(doc.createTextNode(stopRun));
+			rootElement.appendChild(stop);
+			
+		}
+	}
+	
 	
 	/*
 	 * ADDED BY GROUP 6

@@ -52,6 +52,9 @@ public class Cobol implements PubliclyCloneable {
 	protected String displayString2;
 	protected String displayString3;
 	
+	//StopRun
+	protected String stopRun;
+	
 	
 	/**
 	 * Return a copy of this object.
@@ -314,6 +317,10 @@ public class Cobol implements PubliclyCloneable {
 		this.computeVar_1 = computeVar_1;
 	}
 	
+	public void setComputeVar_1(int computeVar_1) {
+		this.computeVar_1 = "" + computeVar_1;
+	}
+	
 	public String getComputeVar_2() {
 		return computeVar_2;
 	}
@@ -321,6 +328,11 @@ public class Cobol implements PubliclyCloneable {
 	public void setComputeVar_2(String computeVar_2) {
 		this.computeVar_2 = computeVar_2;
 	}
+	
+	public void setComputeVar_2(int computeVar_2) {
+		this.computeVar_2 = "" + computeVar_2;
+	}
+	
 	
 	public String getComputeOperator() {
 		return computeOperator;
@@ -394,6 +406,13 @@ public class Cobol implements PubliclyCloneable {
 		this.displayString3 = displayString3;
 	}
 	
+	public String getStopRun() {
+		return stopRun;
+	}
+	
+	public void setStopRun(String stopRun) {
+		this.stopRun = stopRun;
+	}
 	
 
 	/**

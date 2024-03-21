@@ -14,8 +14,9 @@
         <base_2 Value="2.0"/>
     </Constant>
     <Compute>sum = num_1 + num_2</Compute>
-    <Compute>sum = num_1 - num_2</Compute>
-    <Compute>sum = num_1 * num_2</Compute>
-    <Compute>sum = num_1 / num_2</Compute>
+    <Compute>difference = num_1 - num_2</Compute>
+    <Compute>product = 13 * num_2</Compute>
+    <Compute>quotient = num_1 / 2</Compute>
     <Display>"The sum of "num_1" and "num_2" is "10</Display>
+    <Stop>run</Stop>
 </cobol>

@@ -9,7 +9,13 @@ public class ComputeLineAssembler extends Assembler{
 	public void workOn(Assembly a) {
 		Cobol c = new Cobol();
 		Token t = (Token) a.pop();
-		c.setComputeVar_2(t.sval());
+		
+		if(t.sval() == "") {
+			c.setComputeVar_2((int)t.nval());
+		}else{
+			c.setComputeVar_2(t.sval());
+		}
+		//System.out.println(c.getComputeVar_2());
 		//This should be num_2
 		
 		t = (Token) a.pop();
@@ -17,7 +23,11 @@ public class ComputeLineAssembler extends Assembler{
 		//This should be +
 		
 		t = (Token) a.pop();
-		c.setComputeVar_1(t.sval());
+		if(t.sval() == "") {
+			c.setComputeVar_1((int)t.nval());
+		}else{
+			c.setComputeVar_1(t.sval());
+		}
 		//This should be num_1
 		
 		t = (Token) a.pop();
