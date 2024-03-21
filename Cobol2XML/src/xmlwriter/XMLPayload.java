@@ -77,7 +77,7 @@ public class XMLPayload {
 		 * */
 		String stopRun = c.getStopRun();
 		if(stopRun != null) {
-			this.addStopRun( stopRun );
+			this.addStopRunElement( stopRun );
 			//System.out.println("Got Section");
 			
 			//Add contents of stopRun
@@ -92,7 +92,7 @@ public class XMLPayload {
 		 * */
 		String display1 = c.getDisplay1();
 		if(display1 != null) {
-			this.addDisplay( display1 , c.getDisplay2(), c.getDisplayNumber() ,c.getDisplayString1(),c.getDisplayString2(),c.getDisplayString3() );
+			this.addDisplayElement( display1 , c.getDisplay2(), c.getDisplayNumber() ,c.getDisplayString1(),c.getDisplayString2(),c.getDisplayString3() );
 			//System.out.println("Got Section");
 			
 			//Add contents of computeLine
@@ -279,7 +279,7 @@ public class XMLPayload {
 		
 	}
 	
-	void addDisplay( String display1, String display2, int displayNumber, String displayString1, String displayString2, String displayString3 ){
+	void addDisplayElement( String display1, String display2, int displayNumber, String displayString1, String displayString2, String displayString3 ){
 		
 		if(display1 != null) {
 			Element display = doc.createElement("Display");
@@ -289,7 +289,7 @@ public class XMLPayload {
 		}
 	}
 	
-void addStopRun( String stopRun ){
+void addStopRunElement( String stopRun ){
 		
 		if(stopRun != null) {
 			Element stop = doc.createElement("Stop");

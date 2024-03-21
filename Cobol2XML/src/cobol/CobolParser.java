@@ -221,7 +221,7 @@ public class CobolParser {
 	 * 
 	 * Returns a parser that will recognise the grammar:
 	 * 
-	 * 			display quotedString word/number quotedString word/number quotedString word/number
+	 * 			display quotedString word/number quotedString word/number quotedString number
 	 * */
 	protected Parser display() {
 		//System.out.println("display()");
