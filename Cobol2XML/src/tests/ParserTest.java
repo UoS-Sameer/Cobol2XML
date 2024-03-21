@@ -11,7 +11,7 @@ import parse.tokens.Tokenizer;
 class ParserTest {
 
 	@Test
-	void test() {
+	void testDivisionName() {
 		Tokenizer t = CobolParser.tokenizer();
 		Parser p = CobolParser.start();
 		
@@ -21,26 +21,8 @@ class ParserTest {
 		Assembly out = p.bestMatch(in);
 		assertFalse(out.stackIsEmpty());
 		
-		// ProgramID Parser Test
-		t.setString("program-id.  base_jb.");
-		in = new TokenAssembly(t);
-		out = p.bestMatch(in);
-		assertFalse(out.stackIsEmpty());
-		
-		// DateWritten Parser Test
-		t.setString("date-written.  7-jul-1995 - mb.");
-		in = new TokenAssembly(t);
-		out = p.bestMatch(in);
-		assertFalse(out.stackIsEmpty());
-		
 		//DivisionName Parser Test #2
 		t.setString("data division.");
-		in = new TokenAssembly(t);
-		out = p.bestMatch(in);
-		assertFalse(out.stackIsEmpty());
-		
-		//SectionName Parser Test
-		t.setString("working-storage section.");
 		in = new TokenAssembly(t);
 		out = p.bestMatch(in);
 		assertFalse(out.stackIsEmpty());
@@ -51,10 +33,58 @@ class ParserTest {
 		out = p.bestMatch(in);
 		assertFalse(out.stackIsEmpty());
 		
+	}
+	
+	@Test
+	void testProgramID() {
+		Tokenizer t = CobolParser.tokenizer();
+		Parser p = CobolParser.start();
+		
+		// ProgramID Parser Test
+		t.setString("program-id.  base_jb.");
+		Assembly in = new TokenAssembly(t);
+		Assembly out = p.bestMatch(in);
+		assertFalse(out.stackIsEmpty());
+		
+		}
+	
+	@Test
+	void testDateWritten() {
+		Tokenizer t = CobolParser.tokenizer();
+		Parser p = CobolParser.start();
+		
+		// DateWritten Parser Test
+		t.setString("date-written.  7-jul-1995 - mb.");
+		Assembly in = new TokenAssembly(t);
+		Assembly out = p.bestMatch(in);
+		assertFalse(out.stackIsEmpty());
+		
+		}
+	
+	
+	@Test
+	void testSectionName() {
+		Tokenizer t = CobolParser.tokenizer();
+		Parser p = CobolParser.start();
+		
+		//SectionName Parser Test
+		t.setString("working-storage section.");
+		Assembly in = new TokenAssembly(t);
+		Assembly out = p.bestMatch(in);
+		assertFalse(out.stackIsEmpty());
+		
+		}
+	
+	
+	@Test
+	void testComputeLine() {
+		Tokenizer t = CobolParser.tokenizer();
+		Parser p = CobolParser.start();
+		
 		//computeLine Parser Test #1
 		t.setString("compute sum = num_1 + num_2.");
-		in = new TokenAssembly(t);
-		out = p.bestMatch(in);
+		Assembly in = new TokenAssembly(t);
+		Assembly out = p.bestMatch(in);
 		assertFalse(out.stackIsEmpty());
 		
 		//computeLine Parser Test #2
@@ -75,18 +105,32 @@ class ParserTest {
 		out = p.bestMatch(in);
 		assertFalse(out.stackIsEmpty());
 		
+		}
+	
+	
+	@Test
+	void testDisplay() {
+		Tokenizer t = CobolParser.tokenizer();
+		Parser p = CobolParser.start();
+		
 		//display Parser Test
-		t.setString("display \"The sum of \" num_1 \" and \" num_2 \" is \" 10.");
-		in = new TokenAssembly(t);
-		out = p.bestMatch(in);
-		assertFalse(out.stackIsEmpty());
+				t.setString("display \"The sum of \" num_1 \" and \" num_2 \" is \" 10.");
+				Assembly in = new TokenAssembly(t);
+				Assembly out = p.bestMatch(in);
+				assertFalse(out.stackIsEmpty());
+		}
+	
+	@Test
+	void testStopRun() {
+		Tokenizer t = CobolParser.tokenizer();
+		Parser p = CobolParser.start();
 		
 		//stopRun Parser Test
-		t.setString("stop run.");
-		in = new TokenAssembly(t);
-		out = p.bestMatch(in);
-		assertFalse(out.stackIsEmpty());
-		
-	}
+				t.setString("stop run.");
+				Assembly in = new TokenAssembly(t);
+				Assembly out = p.bestMatch(in);
+				assertFalse(out.stackIsEmpty());
+		}
+	
 
 }
