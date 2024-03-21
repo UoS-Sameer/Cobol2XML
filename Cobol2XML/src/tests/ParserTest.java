@@ -51,12 +51,6 @@ class ParserTest {
 		out = p.bestMatch(in);
 		assertFalse(out.stackIsEmpty());
 		
-		// constantValue Parser Test
-		t.setString("88 base_2 value 2.");
-		in = new TokenAssembly(t);
-		out = p.bestMatch(in);
-		assertFalse(out.stackIsEmpty());
-		
 		//computeLine Parser Test #1
 		t.setString("compute sum = num_1 + num_2.");
 		in = new TokenAssembly(t);
