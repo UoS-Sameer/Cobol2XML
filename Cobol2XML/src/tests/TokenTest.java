@@ -12,6 +12,7 @@ class TokenTest {
 		Token t = new Token(c);
 		assertFalse(t.isNumber());
 		assertFalse(t.isWord());
+		assertFalse(t.isQuotedString());
 		assertTrue(t.isSymbol());
 	}
 
