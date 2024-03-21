@@ -26,6 +26,22 @@ class CobolTest {
 		
 	}
 	
-	//GETTERS AND SETTERS TESTS
+	@Test
+	void testEquals() {
+		
+		//Same object
+		Cobol c = new Cobol();
+        assertTrue(c.equals(c));
+        
+        //Null
+        assertFalse(c.equals(null));
+        
+        //Different objects
+        Cobol differentC = new Cobol();
+        c.setProgram_ID("1");
+        assertFalse(c.equals(differentC));
+        
+	}
+	
 
 }
