@@ -14,17 +14,16 @@ class DateAssemblerTest {
     @Test
     void test() {
         DateAssembler assembler = new DateAssembler();
-        
-        TokenAssembly assembly = new TokenAssembly(new TokenString("test")); 
+        TokenAssembly assembly = new TokenAssembly("test"); 
         assembly.push(new Token(31)); //Day
         assembly.push(new Token("DEC/2023")); //Month + Year
         
         assembler.workOn(assembly);
         
         Cobol c = (Cobol) assembly.getTarget();
-        System.out.println(c.getMonthDateWritten());
-        System.out.println(c.getYearDateWritten());
-        System.out.println(c.getDayDateWritten());
+        //System.out.println(c.getMonthDateWritten());
+        //System.out.println(c.getYearDateWritten());
+        //System.out.println(c.getDayDateWritten());
         
         assertEquals("DEC", c.getMonthDateWritten());
         assertEquals(2023, c.getYearDateWritten());

@@ -68,6 +68,14 @@ public class XMLPayload {
 		
 	}
 	
+	public Document getDoc() {
+		return this.doc;
+	}
+	
+	public Element getRootElement() {
+		return this.rootElement;
+	}
+	
 	
 	public void addElements(Cobol c) {
 		

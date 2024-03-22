@@ -13,7 +13,7 @@ class DivisionAssemblerTest {
     @Test
     void test() {
         DivisionAssembler assembler = new DivisionAssembler();
-        TokenAssembly assembly = new TokenAssembly(new TokenString("test"));
+        TokenAssembly assembly = new TokenAssembly("test");
         
         assembly.push(new Token("Data"));
         
