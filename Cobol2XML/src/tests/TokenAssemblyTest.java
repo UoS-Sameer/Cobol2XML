@@ -63,7 +63,7 @@ class TokenAssemblyTest {
 
         
         String remainder = assembly.remainder("/");
-        System.out.println("Remainder: " + remainder);
+        //System.out.println("Remainder: " + remainder);
         assertEquals("Two/Three", remainder);
     }
 

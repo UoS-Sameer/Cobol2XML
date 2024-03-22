@@ -15,8 +15,7 @@ class ConstantValueAssemblerTest {
     @Test
     void test() {
         ConstantValueAssembler assembler = new ConstantValueAssembler();
-        
-        TokenAssembly assembly = new TokenAssembly(new TokenString("test"));
+        TokenAssembly assembly = new TokenAssembly("test");
         
         // Push tokens to the assembly in the correct order
         assembly.push(new Token(1));       // Line number

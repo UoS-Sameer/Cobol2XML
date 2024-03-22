@@ -15,12 +15,12 @@ class SectionNameAssemblerTest {
     @Test
     void test() {
         SectionNameAssembler assembler = new SectionNameAssembler();
-        TokenAssembly assembly = new TokenAssembly(new TokenString("test"));
+        TokenAssembly assembly = new TokenAssembly("test");
         
-        assembly.push(new Token("Main")); 
+        assembly.push(new Token("working-storage")); 
         assembler.workOn(assembly);
         
         Cobol c = (Cobol) assembly.getTarget();
-        assertEquals("Main", c.getSectionName());
+        assertEquals("working-storage", c.getSectionName());
     }
 }

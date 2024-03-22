@@ -16,11 +16,11 @@ class StopRunAssemblerTest {
     void test() {
         StopRunAssembler assembler = new StopRunAssembler();
         
-        TokenAssembly assembly = new TokenAssembly(new TokenString("test"));
-        assembly.push(new Token("StopRun"));
+        TokenAssembly assembly = new TokenAssembly("test");
+        assembly.push(new Token("run"));
         
         assembler.workOn(assembly);
         Cobol c = (Cobol) assembly.getTarget();
-        assertEquals("StopRun", c.getStopRun());
+        assertEquals("run", c.getStopRun());
     }
 }
