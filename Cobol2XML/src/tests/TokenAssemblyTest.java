@@ -15,14 +15,19 @@ class TokenAssemblyTest {
         Token[] tokens = {new Token("One"), new Token("Two"), new Token("Three")};
         TokenString tokenString = new TokenString(tokens);
 	    TokenAssembly assembly = new TokenAssembly(tokenString);
-	    assertEquals("", assembly.consumed("/"));
+	    
+	    //Move index
+	    assembly.nextElement();
+	    assembly.nextElement();
+	    assembly.nextElement();
+	    
+	    assertEquals("One/Two/Three", assembly.consumed("/"));
+	    
 	}
 
     @Test
     void testDefaultDelimiter() {
-        Token[] tokens = {new Token("One"), new Token("Two"), new Token("Three")};
-        TokenString tokenString = new TokenString(tokens);
-	    TokenAssembly assembly = new TokenAssembly(tokenString);
+	    TokenAssembly assembly = new TokenAssembly("test");
         assertEquals("/", assembly.defaultDelimiter());
     }
 
@@ -31,7 +36,10 @@ class TokenAssemblyTest {
         Token[] tokens = {new Token("One"), new Token("Two"), new Token("Three")};
         TokenString tokenString = new TokenString(tokens);
         TokenAssembly assembly = new TokenAssembly(tokenString);
+        
         assertEquals(tokens.length, assembly.length());
+        assertEquals(3, assembly.length());
+        //System.out.println("" + assembly.length());
     }
 
     @Test
@@ -39,7 +47,9 @@ class TokenAssemblyTest {
         Token[] tokens = {new Token("One"), new Token("Two"), new Token("Three")};
         TokenString tokenString = new TokenString(tokens);
         TokenAssembly assembly = new TokenAssembly(tokenString);
+        
         assertEquals(tokens[0], assembly.nextElement()); 
+        assertEquals(1, assembly.elementsConsumed());
     }
 
     @Test
@@ -50,6 +60,9 @@ class TokenAssemblyTest {
         
         // Ensure that the peeked value is the first token
         assertEquals(tokens[0], assembly.peek());
+        
+        //Ensure that index was not changed
+        assertEquals(0,assembly.elementsConsumed());
     }
 
 
@@ -61,7 +74,6 @@ class TokenAssemblyTest {
         
         assembly.nextElement();
 
-        
         String remainder = assembly.remainder("/");
         //System.out.println("Remainder: " + remainder);
         assertEquals("Two/Three", remainder);
@@ -72,6 +84,7 @@ class TokenAssemblyTest {
         Token[] tokens = {new Token("One"), new Token("Two"), new Token("Three")};
         TokenString tokenString = new TokenString(tokens);
         TokenAssembly assembly = new TokenAssembly(tokenString);
+        
         for (int i = 0; i < tokenString.length(); i++) {
             assembly.nextElement();
         }
