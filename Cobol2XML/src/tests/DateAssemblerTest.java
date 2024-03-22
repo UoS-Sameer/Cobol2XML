@@ -15,12 +15,10 @@ class DateAssemblerTest {
     void test() {
         DateAssembler assembler = new DateAssembler();
         
-        // Initialize assembly with tokens
         TokenAssembly assembly = new TokenAssembly(new TokenString("test")); 
         assembly.push(new Token(31)); //Day
         assembly.push(new Token("DEC/2023")); //Month + Year
         
-        // Execute the assembler
         assembler.workOn(assembly);
         
         Cobol c = (Cobol) assembly.getTarget();
